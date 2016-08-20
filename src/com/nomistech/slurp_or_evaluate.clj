@@ -1,5 +1,6 @@
 (ns com.nomistech.slurp-or-evaluate
-  (:require [clojure.java.io :as io]))
+  (:require [clojure.edn :as edn]
+            [clojure.java.io :as io]))
 
 (def ^:private expensive-store-dir "_expensive-store")
 
@@ -20,7 +21,7 @@
           (io/make-parents file)
           (spit file v))
         v)
-      (clojure.edn/read-string (slurp file)))))
+      (edn/read-string (slurp file)))))
 
 (defmacro def-expensive
   ([sym init]

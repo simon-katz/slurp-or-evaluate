@@ -1,5 +1,6 @@
 (ns com.nomistech.slurp-or-evaluate-test
-  (:require [clojure.java.io :as io]
+  (:require [clojure.edn :as edn]
+            [clojure.java.io :as io]
             [clojure.test :refer :all]
             [com.nomistech.slurp-or-evaluate :as soe :refer :all]
             [midje.sweet :refer :all]))
@@ -7,7 +8,7 @@
 ;;;; ___________________________________________________________________________
 
 (defn filename->value [filename]
-  (clojure.edn/read-string (slurp filename)))
+  (edn/read-string (slurp filename)))
 
 (defn test-name->doc-string [test-name]
   (-> (resolve test-name)
