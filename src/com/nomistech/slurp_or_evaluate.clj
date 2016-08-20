@@ -1,14 +1,15 @@
 (ns com.nomistech.slurp-or-evaluate
   (:require [clojure.java.io :as io]))
 
-(def expensive-store-dir "_expensive-store")
+(def ^:private expensive-store-dir "_expensive-store")
 
-(defn symbol->filename [sym]
+(defn ^:private symbol->filename [sym]
   (str expensive-store-dir
        "/"
        (name sym)))
 
 (defn slurp-or-evaluate [sym init-fun replace-stored-value?]
+  ;; Clojure symbol/ns weirdness means this must be public.
   (let [file (-> sym
                  symbol->filename
                  io/file)]

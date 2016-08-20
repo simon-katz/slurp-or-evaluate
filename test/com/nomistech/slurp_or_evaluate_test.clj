@@ -1,7 +1,7 @@
 (ns com.nomistech.slurp-or-evaluate-test
   (:require [clojure.java.io :as io]
             [clojure.test :refer :all]
-            [com.nomistech.slurp-or-evaluate :refer :all]
+            [com.nomistech.slurp-or-evaluate :as soe :refer :all]
             [midje.sweet :refer :all]))
 
 ;;;; ___________________________________________________________________________
@@ -18,7 +18,7 @@
 
 (fact "`def-expensive` with no doc string works"
 
-  (let [filename       (symbol->filename 'test-with-no-doc-string)
+  (let [filename       (#'soe/symbol->filename 'test-with-no-doc-string)
         commentary     (atom [])
         add-commentary (partial swap! commentary conj)]
 
@@ -43,7 +43,7 @@
 
 (fact "`def-expensive` with a doc string works"
   
-  (let [filename       (symbol->filename 'test-with-a-doc-string)
+  (let [filename       (#'soe/symbol->filename 'test-with-a-doc-string)
         commentary     (atom [])
         add-commentary (partial swap! commentary conj)]
 
