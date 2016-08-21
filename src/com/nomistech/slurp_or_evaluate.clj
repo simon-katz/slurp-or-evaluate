@@ -45,7 +45,7 @@
                          false))))
 
 (defmacro def-expensive-replacing
-  "Like `def-expensive-replacing`, but ignores any existing saved value."
+  "Like `def-expensive-replacing`, but ignore any existing saved value."
   ([sym init]
    `(def ~sym
       (slurp-or-evaluate '~sym
