@@ -21,9 +21,8 @@
     (if (or replace-stored-value?
             (not (.exists file)))
       (let [v (init-fun)]
-        (do
-          (io/make-parents file)
-          (spit file v))
+        (io/make-parents file)
+        (spit file v)
         v)
       (edn/read-string (slurp file)))))
 
