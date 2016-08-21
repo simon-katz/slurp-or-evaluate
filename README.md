@@ -15,13 +15,22 @@ when offline.
 ### Basics
 
 For a Leiningen project, use the following dependency:
-- `[com.nomistech/slurp-or-evaluate "0.1.1"]`
+
+```
+[com.nomistech/slurp-or-evaluate "0.1.1"]
+```
 
 Add the following to your `ns` declaration:
-- `(:require [com.nomistech.slurp-or-evaluate :refer :all])`
+
+```
+(:require [com.nomistech.slurp-or-evaluate :refer :all])
+```
 
 Use as follows:
-- `(def-expensive foo ...my-expensive-computation...)`
+
+```
+(def-expensive foo ...my-expensive-computation...)
+```
 
 This is the same as `def`, except:
 - If `def-expensive` has a saved value, it will use that instead of evaluating
@@ -31,12 +40,15 @@ evaluating `...my-expensive-computation...` to file for future use.
 
 You can also have a doc string as follows:
 
-- `(def-expensive foo "my doc string" ...my-expensive-computation...)`
+```
+(def-expensive foo "my doc string" ...my-expensive-computation...)
+```
 
 #### Storage Directory
 
-slurp-or-evaluate stores data in the directory `_slurp-or-evaluate-store/`;
-you may wish to exclude that from version control
+slurp-or-evaluate stores data in the directory `_slurp-or-evaluate-store/`.
+
+You may wish to exclude that directory from version control
 (e.g. add it to your `.gitignore` file).
 
 #### Var Names
