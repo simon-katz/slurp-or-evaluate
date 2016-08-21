@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This change
 ## Unreleased
 
 - Improve doc.
+- Make storage location tailorable.
 
 ## 0.1.1 — 2016-08-21
 

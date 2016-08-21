@@ -33,7 +33,11 @@ You can also have a doc string as follows:
 
 slurp-or-evaluate stores data in the directory `_slurp-or-evaluate-store/`;
 you may wish to exclude that from version control
-(e.g. add it to your `.gitignore` file).
+(e.g. add it to your `.gitignore` file). You can change where
+slurp-or-evaluate stores data with:
+```
+(alter-var-root #'slurp-or-evaluate-store-dir (constantly "my-store-dir"))
+```
 
 slurp-or-evaluate uses the name of the var being defined as the name
 of the file in which to store the saved value (within the
