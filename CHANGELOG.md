@@ -7,6 +7,10 @@ All notable changes to this project will be documented in this file. This change
 
 - <nothing yet>
 
+### Diffs
+
+https://github.com/simon-katz/slurp-or-evaluate/compare/0.1.2...HEAD
+
 
 ## 0.1.2 — 2016-08-21
 
@@ -18,6 +22,10 @@ All notable changes to this project will be documented in this file. This change
 
 - Improve doc.
 
+### Diffs
+
+https://github.com/simon-katz/slurp-or-evaluate/compare/0.1.1...0.1.2
+
 
 ## 0.1.1 — 2016-08-21
 
@@ -25,6 +33,10 @@ All notable changes to this project will be documented in this file. This change
 
 - Add doc strings.
 - Change usage details in README.md.
+
+### Diffs
+
+https://github.com/simon-katz/slurp-or-evaluate/compare/0.1.0...0.1.1
 
 
 ## 0.1.0 — 2016-08-21
