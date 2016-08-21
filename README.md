@@ -41,11 +41,11 @@ you may wish to exclude that from version control
 
 #### Var Names
 
-slurp-or-evaluate uses the name of the var being defined as the name
+The name of the var being defined must be a valid filename on
+your system, because
+slurp-or-evaluate uses the name of the var as the name
 of the file in which to store the saved value (within the
 `_slurp-or-evaluate-store/` directory).
-This means that the name of the var being defined must be a valid filename on
-your system.
 
 #### Removing a Saved Value
 
