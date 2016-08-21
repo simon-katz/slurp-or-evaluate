@@ -28,8 +28,8 @@
 
 (defmacro def-expensive
   "Like `def`, except:
-  - If there is a saved value, use that instead of evaluating `init`.
-  - If there is not a saved value, save the result of evaluating `init`
+  - If there is a saved value, uses that instead of evaluating `init`.
+  - If there is not a saved value, saves the result of evaluating `init`
     to file for future use."
   ([sym init]
    `(def ~sym
@@ -44,7 +44,7 @@
                          false))))
 
 (defmacro def-expensive-replacing
-  "Like `def-expensive-replacing`, but ignore any existing saved value."
+  "Like `def-expensive-replacing`, but ignores any existing saved value."
   ([sym init]
    `(def ~sym
       (slurp-or-evaluate '~sym
