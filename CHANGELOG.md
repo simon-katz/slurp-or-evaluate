@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. This change
 ### Added
 
 - Add doc strings.
+- Change usage details in README.md.
 
 ## 0.1.0 — 2016-08-21
 

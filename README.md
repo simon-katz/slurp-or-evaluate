@@ -18,10 +18,10 @@ For a Leiningen project, use the following dependency:
 - `[com.nomistech/slurp-or-evaluate "0.1.0"]`
 
 Add the following to your `ns` declaration:
-- `[com.nomistech.slurp-or-evaluate :as soe]`
+- `(:require [com.nomistech.slurp-or-evaluate :refer :all])`
 
 Use as follows:
-- `(soe/def-expensive foo ...my-expensive-computation...)`
+- `(def-expensive foo ...my-expensive-computation...)`
 
 This is the same as `def`, except:
 - If `def-expensive` has a saved value, it will use that instead of evaluating
@@ -31,7 +31,7 @@ evaluating `...my-expensive-computation...`.
 
 You can also have a doc string as follows:
 
-- `(soe/def-expensive foo "my doc string" ...my-expensive-computation...)`
+- `(def-expensive foo "my doc string" ...my-expensive-computation...)`
 
 slurp-or-evaluate stores data in the directory `_slurp-or-evaluate-store/`;
 you may wish to exclude that from version control
@@ -45,10 +45,10 @@ your system.
 
 To remove slurp-or-evaluate's saved value for a var, you can either remove
 its file from the `_slurp-or-evaluate-store/` directory or you can use
-`soe/def-expensive-replacing` to force an update.
-A call of `soe/def-expensive-replacing` would probably only exist temporarily
-— the idea is that you would change a call of `soe/def-expensive` to a call
-of `soe/def-expensive-replacing`, evaluate it, and then change it back.
+`def-expensive-replacing` to force an update.
+A call of `def-expensive-replacing` would probably only exist temporarily
+— the idea is that you would change a call of `def-expensive` to a call
+of `def-expensive-replacing`, evaluate it, and then change it back.
 
 ## License
 
