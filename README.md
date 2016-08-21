@@ -15,7 +15,7 @@ when offline.
 ### Dependencies
 
 For a Leiningen project, use the following dependency:
-- `[com.nomistech/slurp-or-evaluate "0.1.0-SNAPSHOT"]`
+- `[com.nomistech/slurp-or-evaluate "0.1.0"]`
 
 Add the following to your `ns` declaration:
 - `[com.nomistech.slurp-or-evaluate :as soe]`
