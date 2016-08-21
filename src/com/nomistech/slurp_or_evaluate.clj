@@ -28,11 +28,10 @@
       (edn/read-string (slurp file)))))
 
 (defmacro def-expensive
-  "The same as `def`, except:
-  - If `def-expensive` has a saved value, it will use that instead
-    of evaluating `init`.
-  - If `def-expensive` does not have a saved value, it will save
-    the result of evaluating `init` for future use by `def-expensive`."
+  "Like `def`, except:
+  - If there is a saved value, use that instead of evaluating `init`.
+  - If there is not a saved value, save the result of evaluating `init`
+    to file for future use."
   ([sym init]
    `(def ~sym
       (slurp-or-evaluate '~sym
@@ -46,8 +45,7 @@
                          false))))
 
 (defmacro def-expensive-replacing
-  "The same as `def`, except saves the result of evaluating `init` for
-  future use by `def-expensive`."
+  "Like `def-expensive-replacing`, but ignores any existing saved value."
   ([sym init]
    `(def ~sym
       (slurp-or-evaluate '~sym

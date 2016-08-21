@@ -12,8 +12,6 @@ when offline.
 
 ## Usage
 
-### Dependencies
-
 For a Leiningen project, use the following dependency:
 - `[com.nomistech/slurp-or-evaluate "0.1.1"]`
 
@@ -27,7 +25,7 @@ This is the same as `def`, except:
 - If `def-expensive` has a saved value, it will use that instead of evaluating
 `...my-expensive-computation...`.
 - If `def-expensive` does not have a saved value, it will save the result of
-evaluating `...my-expensive-computation...`.
+evaluating `...my-expensive-computation...` to file for future use.
 
 You can also have a doc string as follows:
 
