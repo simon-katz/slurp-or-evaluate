@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file. This change
 
 ## Unreleased
 
-- <nothing yet>
+### Added
+
+- Add doc strings.
 
 ## 0.1.0 — 2016-08-21
 
