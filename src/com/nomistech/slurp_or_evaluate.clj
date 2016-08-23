@@ -2,7 +2,9 @@
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]))
 
-(def slurp-or-evaluate-store-dir "_slurp-or-evaluate-store")
+(def slurp-or-evaluate-store-dir
+  "The directory where slurp-or-evaluate stores saved values, as a string."
+  "_slurp-or-evaluate-store")
 
 (defn ^:private symbol->filename [sym]
   (str slurp-or-evaluate-store-dir

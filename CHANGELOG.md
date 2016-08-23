@@ -5,7 +5,8 @@ All notable changes to this project will be documented in this file. This change
 
 ## Unreleased
 
-- <nothing yet>
+- Add doc string to `slurp-or-evaluate-store-dir`.
+
 
 ### Diffs
 
