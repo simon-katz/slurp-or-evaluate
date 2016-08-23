@@ -7,6 +7,9 @@
 
 ;;;; ___________________________________________________________________________
 
+(defn symbol->filename [sym]
+  (#'soe/symbol->filename sym))
+
 (defn filename->value [filename]
   (edn/read-string (slurp filename)))
 
@@ -19,7 +22,7 @@
 
 (fact "`def-expensive` with no doc string works"
 
-  (let [filename       (#'soe/symbol->filename 'test-with-no-doc-string)
+  (let [filename       (symbol->filename 'test-with-no-doc-string)
         commentary     (atom [])
         add-commentary (partial swap! commentary conj)]
 
@@ -44,7 +47,7 @@
 
 (fact "`def-expensive` with a doc string works"
   
-  (let [filename       (#'soe/symbol->filename 'test-with-a-doc-string)
+  (let [filename       (symbol->filename 'test-with-a-doc-string)
         commentary     (atom [])
         add-commentary (partial swap! commentary conj)]
 
