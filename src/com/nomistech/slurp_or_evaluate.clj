@@ -13,8 +13,8 @@
 
 (defn slurp-or-evaluate
   "Private.
-  Private to this namespace, but needs to be public because of the
-  way that symbols, namespaces and macros work in Clojure."
+  Private, but needs to be public because of the way that symbols, namespaces
+  and macros work in Clojure."
   [sym init-fun replace-stored-value?]
   ;; Clojure symbol/ns weirdness means this must be public.
   (let [file (-> sym
