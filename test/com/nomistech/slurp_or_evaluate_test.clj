@@ -75,3 +75,16 @@
       (fact test-with-a-doc-string => :first-value)
       (fact (filename->value filename) => :first-value)
       (fact @commentary => ["Computing a first time"]))))
+
+;;;; ___________________________________________________________________________
+
+(fact "`def-expensive-replacing` works"
+  (let [filename       (symbol->filename 'test-replacing)]
+    (do ; Prepare
+      (io/delete-file filename true)
+      (def-expensive test-replacing :first-value)
+      (fact test-replacing => :first-value))
+    (do  ; Replace value
+      (def-expensive-replacing test-replacing :second-value)
+      (fact test-replacing => :second-value)
+      (fact (filename->value filename) => :second-value))))
