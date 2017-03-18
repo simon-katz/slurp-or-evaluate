@@ -34,6 +34,7 @@
         (do (add-commentary "Computing a first time")
             :first-value))
       (fact (test-name->doc-string 'test-with-no-doc-string) => nil)
+      (fact test-with-no-doc-string => :first-value)
       (fact (filename->value filename) => :first-value)
       (fact @commentary => ["Computing a first time"]))
     
@@ -42,6 +43,7 @@
         (do (add-commentary "Computing a second time")
             :second-value))
       (fact (test-name->doc-string 'test-with-no-doc-string) => nil)
+      (fact test-with-no-doc-string => :first-value)
       (fact (filename->value filename) => :first-value)
       (fact @commentary => ["Computing a first time"]))))
 
@@ -60,6 +62,7 @@
         (do (add-commentary "Computing a first time")
             :first-value))
       (fact (test-name->doc-string 'test-with-a-doc-string) => "the first doc string")
+      (fact test-with-a-doc-string => :first-value)
       (fact (filename->value filename) => :first-value)
       (fact @commentary => ["Computing a first time"]))
     
@@ -69,5 +72,6 @@
         (do (add-commentary "Computing a second time")
             :second-value))
       (fact (test-name->doc-string 'test-with-a-doc-string) => "the second doc string")
+      (fact test-with-a-doc-string => :first-value)
       (fact (filename->value filename) => :first-value)
       (fact @commentary => ["Computing a first time"]))))
