@@ -8,7 +8,9 @@
 ;;;; ___________________________________________________________________________
 
 (defn symbol->filename [sym]
-  (#'soe/symbol->filename sym))
+  (str slurp-or-evaluate-store-dir
+       "/"
+       (name sym)))
 
 (defn filename->value [filename]
   (edn/read-string (slurp filename)))
