@@ -78,7 +78,7 @@ You can change where slurp-or-evaluate stores data with:
 
 ## License
 
-Copyright © 2016 Simon Katz
+Copyright © 2016-2017 Simon Katz
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
