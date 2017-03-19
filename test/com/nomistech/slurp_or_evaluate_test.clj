@@ -78,13 +78,58 @@
 
 ;;;; ___________________________________________________________________________
 
-(fact "`def-expensive-replacing` works"
-  (let [filename       (symbol->filename 'test-replacing)]
-    (do ; Prepare
+(fact "`def-expensive-replacing` with no doc string works"
+
+  (let [filename       (symbol->filename 'test-with-no-doc-string)
+        commentary     (atom [])
+        add-commentary (partial swap! commentary conj)]
+
+    (fact "no stored value"
       (io/delete-file filename true)
-      (def-expensive test-replacing :first-value)
-      (fact test-replacing => :first-value))
-    (do  ; Replace value
-      (def-expensive-replacing test-replacing :second-value)
-      (fact test-replacing => :second-value)
-      (fact (filename->value filename) => :second-value))))
+      (def-expensive-replacing test-with-no-doc-string
+        (do (add-commentary "Computing a first time")
+            :first-value))
+      (fact (test-name->doc-string 'test-with-no-doc-string) => nil)
+      (fact test-with-no-doc-string => :first-value)
+      (fact (filename->value filename) => :first-value)
+      (fact @commentary => ["Computing a first time"]))
+    
+    (fact "with a stored value"
+      (def-expensive-replacing test-with-no-doc-string
+        (do (add-commentary "Computing a second time")
+            :second-value))
+      (fact (test-name->doc-string 'test-with-no-doc-string) => nil)
+      (fact test-with-no-doc-string => :second-value)
+      (fact (filename->value filename) => :second-value)
+      (fact @commentary => ["Computing a first time"
+                            "Computing a second time"]))))
+
+;;;; ___________________________________________________________________________
+
+(fact "`def-expensive-replacing` with a doc string works"
+  
+  (let [filename       (symbol->filename 'test-with-a-doc-string)
+        commentary     (atom [])
+        add-commentary (partial swap! commentary conj)]
+
+    (fact "no stored value"
+      (io/delete-file filename true)
+      (def-expensive-replacing test-with-a-doc-string
+        "the first doc string"
+        (do (add-commentary "Computing a first time")
+            :first-value))
+      (fact (test-name->doc-string 'test-with-a-doc-string) => "the first doc string")
+      (fact test-with-a-doc-string => :first-value)
+      (fact (filename->value filename) => :first-value)
+      (fact @commentary => ["Computing a first time"]))
+    
+    (fact "with a stored value"
+      (def-expensive-replacing test-with-a-doc-string
+        "the second doc string"
+        (do (add-commentary "Computing a second time")
+            :second-value))
+      (fact (test-name->doc-string 'test-with-a-doc-string) => "the second doc string")
+      (fact test-with-a-doc-string => :second-value)
+      (fact (filename->value filename) => :second-value)
+      (fact @commentary => ["Computing a first time"
+                            "Computing a second time"]))))
