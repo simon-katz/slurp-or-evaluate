@@ -24,7 +24,9 @@
             (not (.exists file)))
       (let [v (init-fun)]
         (io/make-parents file)
-        (spit file v)
+        (binding [*print-length* nil
+                  *print-level*  nil]
+          (spit file v))
         v)
       (edn/read-string (slurp file)))))
 

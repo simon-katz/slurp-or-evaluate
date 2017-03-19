@@ -133,3 +133,23 @@
       (fact (filename->value filename) => :second-value)
       (fact @commentary => ["Computing a first time"
                             "Computing a second time"]))))
+
+;;;; ___________________________________________________________________________
+
+(fact "`def-expensive` disregards `*print-length*`"
+  (let [filename (symbol->filename 'test-print-length)
+        v [0 1 2 3 4 5]]
+    (io/delete-file filename true)
+    (binding [*print-length* 2]
+      (def-expensive test-print-length v))
+    (def-expensive test-print-length :ignored)
+    (fact test-print-length => v)))
+
+(fact "`def-expensive` disregards `*print-level*`"
+  (let [filename (symbol->filename 'test-print-level)
+        v {:a {:b {:c {:d {:e {:f 6}}}}}}]
+    (io/delete-file filename true)
+    (binding [*print-level* 2]
+      (def-expensive test-print-level v))
+    (def-expensive test-print-level :ignored)
+    (fact test-print-level => v)))
