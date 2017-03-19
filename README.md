@@ -17,7 +17,7 @@ when offline.
 For a Leiningen project, use the following dependency:
 
 ```
-[com.nomistech/slurp-or-evaluate "0.1.2"]
+[com.nomistech/slurp-or-evaluate "0.1.3"]
 ```
 
 Add the following to your `ns` declaration:

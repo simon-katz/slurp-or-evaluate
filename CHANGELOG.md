@@ -3,14 +3,16 @@
 All notable changes to this project will be documented in this file. This change log follows the conventions of [keepachangelog.com](http://keepachangelog.com/).
 
 
-## Unreleased
+## 0.1.3 — 2017-03-19
+
+### Added
 
 - Add doc string to `slurp-or-evaluate-store-dir`.
-
+- Disregard `*print-length*` and `*print-level*` when writing values to file.
 
 ### Diffs
 
-https://github.com/simon-katz/slurp-or-evaluate/compare/0.1.2...HEAD
+https://github.com/simon-katz/slurp-or-evaluate/compare/0.1.2...0.1.3
 
 
 ## 0.1.2 — 2016-08-21
